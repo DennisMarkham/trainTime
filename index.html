@@ -3,6 +3,7 @@
 
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -14,12 +15,16 @@ LOOK UP INSTRUCTIONS FOR DEPLOYMENT -->
 
 <div class = "col-md-2"><b>Train Name</b>
 <hr>
-<span id ="trainNames"></span>
+<span id ="trainNames">
+  
+</span>
 </div>
 
 <div class = "col-md-2"><b>Destination</b>
   <hr>
-<span id = "destinations"></span>
+<span id = "destinations">
+  
+</span>
 </div>
 
 <div class = "col-md-2"><b>Frequency</b>
@@ -40,27 +45,27 @@ LOOK UP INSTRUCTIONS FOR DEPLOYMENT -->
 <div class = "col-md-1"></div>
 
 </div>
-
+<hr>
  <form>
-  Train Name: <input type=text>
+  Train Name: <input type="text" id="name">
   <br>
   <br>
-  Destination: <input type = text>
+  Destination: <input type = "text" id="dest">
   <br>
   <br>
-  First Train Time (HH:mm - military time): <input type=text>
+  First Train Time (HH:mm - military time): <input type="text" id="firstTT">
   <br>
   <br>
-  Frequency: Min <input type = text>
+  Frequency: Min <input type = "text" id = "freq">
   <br>
   <br>
-  <input type=submit>
+  <input type="submit" id ="submit">
 
 
  </form>
 
-     <script src = "giftastic.js">
-     
+     <script src = "train.js">
+
     </script>
 
 
