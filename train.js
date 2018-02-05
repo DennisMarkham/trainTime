@@ -1,39 +1,4 @@
-     //0300
-//1912
 
-//16 hours + 12 minutes
-
-//960 + 12.  972 minutes
-
-//972 minutes/17
-
-//Remainder is amount of time until train arrives
-
-//or is it whatever 17 in minus the remainder?
-
-// var modulus = 972%17;
-// console.log (modulus);
-//remainder logged as '3' for me twice 
-//14 minutes
-
-//so basic formula is find difference between start time and current time, 
-//modulus the difference and the interval time,
-//subtract remainder (modulus result) from interval time
-
-// So 16%3 = 1.  3-1 is 2.
-
-//the real challenge will be converting military time.  So before the colon
-//gets multiplied by 60, then added to what's after the colon. 
-
-
-//so create array of train objects?  Button makes new object?  Can a button create an object
-
-
-//create a train array.
-
-//on submit button, variables are filled in in function
-//new object is created by function, with variables filling in properties
-//
 
 
 
@@ -129,6 +94,6 @@ var newTrain =
 trains.push(newTrain);
 
 console.log(trains);
-//for some bizarre reason this doesn't add a new item to the array
+
 printTrains();
 })
