@@ -4,7 +4,7 @@
 
      var Thomas = {
   name: "Thomas",
-  dest: "Boston",
+  dest: "New York",
   first: "05:00",
   freq: 30,
 }
