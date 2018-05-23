@@ -8,7 +8,15 @@
   first: "05:00",
   freq: 30,
 }
-var trains = [Thomas];
+     
+ var Duncan = {
+  name: "Duncan",
+  dest: "Boston",
+  first: "06:00",
+  freq: 45,
+}
+ 
+var trains = [Thomas, Duncan];
 
 //now make this a function?
 
