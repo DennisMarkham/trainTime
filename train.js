@@ -2,6 +2,9 @@
 
 
 
+
+
+
      var Thomas = {
   name: "Thomas",
   dest: "New York",
@@ -23,44 +26,49 @@ var trains = [Thomas, Duncan];
 function printTrains(){
 for (i = 0; i < trains.length; i++)
 {
+//every time this goes off, I want to create a <tr></tr>.  Append it as a child of the table?
 
-  $("#trainNames").append(trains[i].name + "<br>");
+$("table").append("<tr id ='" + i + "'></tr>");
 
-  $("#destinations").append(trains[i].dest + "<br>");
+//YOU'VE GOT IT WORKING INITIALLY, BUT ADDING A NEW TRAIN MESSES THINGS UP!!!
+
+ $("#" + i).append("<td>" + trains[i].name + "</td>");
+
+$("#" + i).append("<td>" + trains[i].dest + "</td>");
 
  var tFrequency = trains[i].freq;
- $("#frequency").append(tFrequency + "mins" + "<br>");
- console.log (tFrequency);
+ $("#" + i).append("<td>" + tFrequency + "mins" + "</td>");
+ 
 
     
     var firstTime = trains[i].first;
-    console.log (firstTime);
+   
 
     
     var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
-    console.log(firstTimeConverted);
+ 
 
     // Current Time
     var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+   
 
     
     var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-    console.log("DIFFERENCE IN TIME: " + diffTime);
+    
 
     
     var tRemainder = diffTime % tFrequency;
-    console.log(tRemainder);
+    
 
     
     var tMinutesTillTrain = tFrequency - tRemainder;
-    $("#minutesAway").append(tMinutesTillTrain + "<br>");
-    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+    $("#" + i).append("<td>" + tMinutesTillTrain + "</td>");
+    
 
     
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-    $("#nextArrival").append(moment(nextTrain).format("hh:mm") + "<br>");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+    $("#" + i).append("<td>" + moment(nextTrain).format("hh:mm") + "</td>");
+    
 }
 }
 
@@ -69,13 +77,15 @@ printTrains();
 $("#submit").click(function(event){
   event.preventDefault();
 
-  $("#trainNames").empty();
-  $("#destinations").empty();
-  $("#frequency").empty();
-  $("#nextArrival").empty();
-  $("#minutesAway").empty();
+  // $("#trainNames").empty();
+  // $("#destinations").empty();
+  // $("#frequency").empty();
+  // $("#nextArrival").empty();
+  // $("#minutesAway").empty();
 
+  $($("td").parent()).remove();
 
+//YES!  IT WORKED!
 
 console.log("you clicked me");
 //this shows up very briefly than goes away
@@ -90,6 +100,15 @@ var newRemainder = newDiffTime % newFreq;
 var newMinAway = newFreq - newRemainder;
 var newNextArr = moment().add(newMinAway, "minutes");
 
+
+console.log("New first converted:" + newFirstConverted);
+
+//VALIDATION FOR FIRST TRAIN NOT WORKING!!  WHY!?
+
+console.log("WHY DOES VALIDATION FOR FIRST TRAIN TIME NOT WORK!?")
+
+if (parseFloat(newFreq) * 0 == 0 && newFirstConverted !== NaN)
+{
 var newTrain =
 {
   name: newName,
@@ -102,6 +121,17 @@ var newTrain =
 trains.push(newTrain);
 
 console.log(trains);
+}
+else if (newFirstConverted === NaN)
+{
+  alert("Must enter First Train Time in correct format");
+}
+else
+{
+  alert("Must enter number for frequency")
+}
 
 printTrains();
+
+
 })
