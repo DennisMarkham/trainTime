@@ -5,46 +5,52 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  <style> 
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+  body{
+  background: url(background.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+  </style>
 </head>
 
 <!-- WHY IS MY PAGE LOPSIDED
 LOOK UP INSTRUCTIONS FOR DEPLOYMENT -->
 <body>
-<div class = "row">
-<div class = "col-md-1"> </div>
 
-<div class = "col-md-2"><b>Train Name</b>
-<hr>
-<span id ="trainNames">
+<table>
+  <tr>
+    <th>Train Name</th>
+    <th>Destination</th>
+    <th>Frequency</th>
+    <th>Minutes Away</th>
+    <th>Next Arrival</th>
+  </tr>
   
-</span>
-</div>
+</table>
 
-<div class = "col-md-2"><b>Destination</b>
-  <hr>
-<span id = "destinations">
-  
-</span>
-</div>
 
-<div class = "col-md-2"><b>Frequency</b>
-<hr>
-<span id = "frequency"></span>
-</div>
 
-<div class = "col-md-2"><b>Next Arrival</b>
-<hr>
-<span id = "nextArrival"></span>
-</div>
-
-<div class = "col-md-2"><b>Minutes Away</b>
-<hr>
-<span id = "minutesAway"></span>
-</div>
-
-<div class = "col-md-1"></div>
-
-</div>
 <hr>
  <form>
   Train Name: <input type="text" id="name">
@@ -65,7 +71,6 @@ LOOK UP INSTRUCTIONS FOR DEPLOYMENT -->
  </form>
 
      <script src = "train.js">
-
     </script>
 
 
