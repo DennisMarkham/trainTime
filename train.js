@@ -26,11 +26,11 @@ var trains = [Thomas, Duncan];
 function printTrains(){
 for (i = 0; i < trains.length; i++)
 {
-//every time this goes off, I want to create a <tr></tr>.  Append it as a child of the table?
+
 
 $("table").append("<tr id ='" + i + "'></tr>");
 
-//YOU'VE GOT IT WORKING INITIALLY, BUT ADDING A NEW TRAIN MESSES THINGS UP!!!
+
 
  $("#" + i).append("<td>" + trains[i].name + "</td>");
 
@@ -77,18 +77,14 @@ printTrains();
 $("#submit").click(function(event){
   event.preventDefault();
 
-  // $("#trainNames").empty();
-  // $("#destinations").empty();
-  // $("#frequency").empty();
-  // $("#nextArrival").empty();
-  // $("#minutesAway").empty();
+ 
 
   $($("td").parent()).remove();
 
-//YES!  IT WORKED!
+
 
 console.log("you clicked me");
-//this shows up very briefly than goes away
+
 
 var newName = $("#name").val();
 var newDest = $("#dest").val();
@@ -103,11 +99,11 @@ var newNextArr = moment().add(newMinAway, "minutes");
 
 console.log("New first converted:" + newFirstConverted);
 
-//VALIDATION FOR FIRST TRAIN NOT WORKING!!  WHY!?
+
 
 console.log("WHY DOES VALIDATION FOR FIRST TRAIN TIME NOT WORK!?")
 
-if (parseFloat(newFreq) * 0 == 0 && newFirstConverted !== NaN)
+if (parseFloat(newFreq) * 0 == 0 && moment(newFirst, 'hh:mm').isValid())
 {
 var newTrain =
 {
@@ -122,7 +118,7 @@ trains.push(newTrain);
 
 console.log(trains);
 }
-else if (newFirstConverted === NaN)
+else if (moment(newFirst, "hh:mm").isValid() == false)
 {
   alert("Must enter First Train Time in correct format");
 }
