@@ -103,7 +103,7 @@ console.log("New first converted:" + newFirstConverted);
 
 console.log("WHY DOES VALIDATION FOR FIRST TRAIN TIME NOT WORK!?")
 
-if (parseFloat(newFreq) * 0 == 0 && moment(newFirst, 'hh:mm').isValid())
+if (parseFloat(newFreq) * 0 == 0 && moment(newFirst, 'hh:mm', true).isValid())
 {
 var newTrain =
 {
@@ -118,7 +118,7 @@ trains.push(newTrain);
 
 console.log(trains);
 }
-else if (moment(newFirst, "hh:mm").isValid() == false)
+else if (moment(newFirst, "hh:mm", true).isValid() == false)
 {
   alert("Must enter First Train Time in correct format");
 }
