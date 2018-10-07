@@ -77,7 +77,7 @@ printTrains();
 $("#submit").click(function(event){
   event.preventDefault();
 
- 
+
 
   $($("td").parent()).remove();
 
@@ -117,6 +117,16 @@ var newTrain =
 trains.push(newTrain);
 
 console.log(trains);
+
+//TRAIN SOUND
+ var trainSound = new Audio("train.wav");
+  trainSound.volume = 0.2;
+
+   trainSound.play();
+
+  console.log("Playing train");
+
+//*******
 }
 else if (moment(newFirst, "hh:mm", true).isValid() == false)
 {
