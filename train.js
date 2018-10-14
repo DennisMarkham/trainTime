@@ -1,9 +1,6 @@
 
-
-
-
-
-
+//PROBLEMS:
+//-Nothing can be deleted after submit is clicked
 
      var Thomas = {
   name: "Thomas",
@@ -28,16 +25,18 @@ for (i = 0; i < trains.length; i++)
 {
 
 
-$("table").append("<tr id ='" + i + "'></tr>");
+// $("table").append("<tr id ='train" + i + "'></tr>");
+
+$("table").append("<tr id ='train" + i + "'>");
 
 
 
- $("#" + i).append("<td>" + trains[i].name + "</td>");
+ $("#train" + i).append("<td>" + trains[i].name + "</td>");
 
-$("#" + i).append("<td>" + trains[i].dest + "</td>");
+$("#train" + i).append("<td>" + trains[i].dest + "</td>");
 
  var tFrequency = trains[i].freq;
- $("#" + i).append("<td>" + tFrequency + "mins" + "</td>");
+ $("#train" + i).append("<td>" + tFrequency + "mins" + "</td>");
  
 
     
@@ -62,17 +61,42 @@ $("#" + i).append("<td>" + trains[i].dest + "</td>");
 
     
     var tMinutesTillTrain = tFrequency - tRemainder;
-    $("#" + i).append("<td>" + tMinutesTillTrain + "</td>");
+    $("#train" + i).append("<td>" + tMinutesTillTrain + "</td>");
     
 
     
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-    $("#" + i).append("<td>" + moment(nextTrain).format("hh:mm") + "</td>");
+    $("#train" + i).append("<td>" + moment(nextTrain).format("hh:mm") + "</td>");
     
+    $("#train" + i).append("<td><button class = 'remove' id = '" + i + "'>x</button></td></tr>")
+    addRemove();
 }
 }
 
 printTrains();
+
+addRemove();
+function addRemove(){
+    $(".remove").click(function(event){
+        $("#train" + this.id).remove();  
+        //code for removing from array:
+        trains.splice(this.id, 1);
+        //ef yeah!  It worked!!  
+        console.log("Removing train");
+    })
+}
+
+// $(".remove").click(function(event){
+
+// $("#train" + this.id).remove();
+
+// //code for removing from array:
+// trains.splice(this.id, 1);
+// //ef yeah!  It worked!!
+
+// console.log("Removing train");
+// })
+
 
 $("#submit").click(function(event){
   event.preventDefault();
@@ -101,7 +125,7 @@ console.log("New first converted:" + newFirstConverted);
 
 
 
-console.log("WHY DOES VALIDATION FOR FIRST TRAIN TIME NOT WORK!?")
+
 
 if (parseFloat(newFreq) * 0 == 0 && moment(newFirst, 'hh:mm', true).isValid())
 {
