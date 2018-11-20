@@ -1,6 +1,4 @@
 
-//PROBLEMS:
-//-Nothing can be deleted after submit is clicked
 
      var Thomas = {
   name: "Thomas",
@@ -18,14 +16,14 @@
  
 var trains = [Thomas, Duncan];
 
-//now make this a function?
+
 
 function printTrains(){
 for (i = 0; i < trains.length; i++)
 {
 
 
-// $("table").append("<tr id ='train" + i + "'></tr>");
+
 
 $("table").append("<tr id ='train" + i + "'>");
 
@@ -68,7 +66,7 @@ $("#train" + i).append("<td>" + trains[i].dest + "</td>");
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
     $("#train" + i).append("<td>" + moment(nextTrain).format("hh:mm") + "</td>");
     
-    $("#train" + i).append("<td><button class = 'remove' id = '" + i + "'>x</button></td></tr>")
+    $("#train" + i).append("<td><button class = 'remove' data-toggle='tooltip' data-placement='left' title='delete train' id = '" + i + "'>x</button></td></tr>")
     addRemove();
 }
 }
