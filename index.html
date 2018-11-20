@@ -9,6 +9,15 @@
 
   <style> 
 
+  div
+  {
+  background-color: lightgray;
+  width: 50%;
+  margin-left: 20px;
+  padding:20px;
+  border-radius: 20px;
+  }
+
   #submit {
     margin: 5px;
   }
@@ -37,9 +46,7 @@ tr:nth-child(even) {
   background-size: cover;
 }
 
-form{
-  margin-left: 20px;
-  }
+
   </style>
 
 </head>
@@ -63,7 +70,7 @@ LOOK UP INSTRUCTIONS FOR DEPLOYMENT -->
 
 <hr>
 
-
+<div>
  <form>
   Train Name: <input type="text" id="name">
   <br>
@@ -77,11 +84,11 @@ LOOK UP INSTRUCTIONS FOR DEPLOYMENT -->
   Frequency: Min <input type = "text" id = "freq">
   <br>
   <br>
-  <input type="submit" id ="submit">
+  <input type="submit" id ="submit" data-toggle="tool-tip" title="add train">
 
 
  </form>
-
+</div>
 
      <script src = "train.js">
     </script>
