@@ -61,7 +61,18 @@ tr:nth-child(even) {
   }
 }
 
+input[type = 'text']
+{
+  width: 120px;
+}
+
+input::placeholder
+{
+  font-size: 75%;
+  color: rgb(220,220,220);
+}
   </style>
+
 
 </head>
 
@@ -102,13 +113,14 @@ LOOK UP INSTRUCTIONS FOR DEPLOYMENT -->
    </datalist>
   <br>
   <br>
-  First Train Time (HH:mm): <input type="text" id="firstTT" placehodler ="(ex. 20:45 for 8:45pm)">
+  First Train Time (HH:mm): <input type="text" id="firstTT" placeholder = "(ex. 08:45 for 8:45pm)">
   <br>
   <br>
-  Frequency: Min <input type = "text" id = "freq">
+  Frequency: Min <input type = "text" id = "freq" style = "width:50px">
   <br>
   <br>
-  <input type="submit" value = "Submit" id ="submit" data-toggle="tool-tip" title="add train">
+  <input type="submit" value = "Submit" id ="submit" data-toggle="tool-tip" title="add train" 
+  >
 
 
  </form>
