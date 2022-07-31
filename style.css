@@ -1,0 +1,65 @@
+
+
+    .remove
+{
+border-radius: 5px;
+color: red;
+font-weight: bold;
+}
+  div
+  {
+  background-color: lightgray;
+  width: 50%;
+  margin-left: 20px;
+  padding:20px;
+  border-radius: 20px;
+  }
+
+  #submit {
+    margin: 5px;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+  body{
+  background: url(background.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+    @media only screen and (min-width: 1700px)
+{
+  body
+  {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+}
+
+input[type = 'text']
+{
+  width: 120px;
+}
+
+input::placeholder
+{
+  font-size: 75%;
+  color: rgb(220,220,220);
+}
