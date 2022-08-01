@@ -145,7 +145,10 @@ var newNextArr = moment().add(newMinAway, "minutes");
 
 //some form of validation, not sure what the hell I meant by this.  Maybe just a way to
 //no freq is a number?  Then the second part checks the formula
-if (parseFloat(newFreq) * 0 == 0 && moment(newFirst, 'hh:mm a', true).isValid())
+//this new regex says the string must start with 1 or 2 digits, followed by a colon, followed by exactly two
+//digits, followed by zero or more spaces, followed by "am" or "pm".  Case insenstive.
+//the problem is this still allows fake times like 88:00am. But meh, solve that later
+if (isNaN(newFreq) == false && newFirst.match(/^\d{1,2}:\d{2}\s*(am|pm)/i)) 
 {
 var newTrain =
 {
@@ -170,14 +173,16 @@ console.log(trains);
 
 //*******
 }
-else if (moment(newFirst, "hh:mm a", true).isValid() == false)
-{
-  alert("Must enter First Train Time in correct format");
-}
-else
+else if (Number.isInteger(parseInt(newFreq)) == false)
 {
   alert("Must enter number for frequency")
 }
+else
+{
+  
+  alert("Must enter valid time, ie: \r\n 8:00pm \r\n 12:00 am \r\n 09:00PM");
+}
+
 
 printTrains();
 
