@@ -38,18 +38,7 @@ $("#train" + i).append("<td>" + trains[i].dest + "</td>");
     var tFrequency = trains[i].freq;
     var firstTime = trains[i].first;
 
-    //not totally cure what the point of this is.
-    // var firstTimeConverted = moment(firstTime, "hh:mm a").subtract(1, "years");
     
-    //this is never used, removing
-    // var currentTime = moment();
-    
-
-    // var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-
-    //is this the differenct between now and the first time, in minutes?
-    // var diffTime = moment.diff(moment(firstTime), "minutes")
-    //I think a better way to write it would:
     var diffTime = moment().diff(moment(firstTime, "HH:mm a"), "minutes");
     console.log("This is the value for the time difference between now and the first arrival: " + diffTime)
     //it came back with a negative value
@@ -103,16 +92,7 @@ function addRemove(){
     })
 }
 
-// $(".remove").click(function(event){
 
-// $("#train" + this.id).remove();
-
-// //code for removing from array:
-// trains.splice(this.id, 1);
-// //ef yeah!  It worked!!
-
-// console.log("Removing train");
-// })
 
 
 $("#submit").click(function(event){
@@ -131,14 +111,14 @@ var newName = $("#name").val();
 var newDest = $("#dest").val();
 var newFirst = $("#firstTT").val();
 var newFreq = $("#freq").val();
-// var newFirstConverted = moment(newFirst, "hh:mm").subtract(1, "years");
+
 var newDiffTime = moment().diff(moment(newFirst, "hh mm a"), "minutes");
 var newRemainder = newDiffTime % newFreq;
 var newMinAway = newFreq - newRemainder;
 var newNextArr = moment().add(newMinAway, "minutes");
 
 
-// console.log("New first converted:" + newFirstConverted);
+
 
 
 
